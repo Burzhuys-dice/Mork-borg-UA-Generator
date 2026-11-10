@@ -312,7 +312,7 @@ HP: ${character.currentHp}/${character.maxHp} | Знамення: ${character.om
 [ХАРАКТЕРИСТИКИ]
 • Сила: ${character.abilities.strength.modifier >= 0 ? '+' : ''}${character.abilities.strength.modifier}
 • Спритність: ${character.abilities.agility.modifier >= 0 ? '+' : ''}${character.abilities.agility.modifier}
-• Присутність: ${character.abilities.presence.modifier >= 0 ? '+' : ''}${character.abilities.presence.modifier}
+• Воля: ${character.abilities.presence.modifier >= 0 ? '+' : ''}${character.abilities.presence.modifier}
 • Витривалість: ${character.abilities.toughness.modifier >= 0 ? '+' : ''}${character.abilities.toughness.modifier}
 
 [ЗБРОЯ ТА БРОНЯ]
@@ -685,11 +685,11 @@ ${character.scrolls.length > 0 ? character.scrolls.map(s => `• ${s.name} (${s.
               </button>
             </div>
 
-            {/* Presence */}
+            {/* Presence / Volya */}
             <div className="p-2.5 bg-[#181818] border-2 border-black shadow-[3px_3px_0px_#000] flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-heading font-bold uppercase text-gray-200">Присутність</span>
+                  <span className="text-xs font-heading font-bold uppercase text-gray-200">Воля</span>
                   <span className="text-[9px] font-mono text-gray-500">3d6: {character.abilities.presence.raw}</span>
                 </div>
                 <div className="text-2xl font-heading font-black text-[#fee715] my-0.5">
@@ -698,7 +698,7 @@ ${character.scrolls.length > 0 ? character.scrolls.map(s => `• ${s.name} (${s.
                 <p className="text-[9px] font-mono text-gray-400 line-clamp-1">Увага, сувої, дальній бій</p>
               </div>
               <button
-                onClick={() => rollAbilityTest('Присутність', character.abilities.presence.modifier)}
+                onClick={() => rollAbilityTest('Воля', character.abilities.presence.modifier)}
                 className="no-print mt-2 py-1.5 bg-[#282828] hover:bg-[#ff0055] hover:text-white border border-black font-mono text-xs font-bold transition-colors flex items-center justify-center gap-1 min-h-[36px]"
               >
                 <Dices className="w-3.5 h-3.5" /> DR12

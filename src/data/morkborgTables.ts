@@ -83,7 +83,7 @@ export const CLASSES_DATA: Record<CharacterClassId, ClassDefinition> = {
     weaponDie: 6,
     armorDie: 2,
     abilityName: 'Природна непомітність (Stealthy)',
-    abilityDescription: 'Усі перевірки Спритності та Присутності мають полегшену складність — знижені на 2 (базовий DR10 замість DR12). Кидає d6 на таблиці зброї та d2 на таблиці броні.',
+    abilityDescription: 'Усі перевірки Спритності та Волі мають полегшену складність — знижені на 2 (базовий DR10 замість DR12). Кидає d6 на таблиці зброї та d2 на таблиці броні.',
     origins: [
       'Викинений у віз із гноєм ще в плодовому міхурі.',
       'Матір повісили під стінами Ґальґенбека; ти випав уже з її мертвого тіла.',
@@ -95,9 +95,9 @@ export const CLASSES_DATA: Record<CharacterClassId, ClassDefinition> = {
     uniqueStarters: [
       { name: 'Підлий випад (Coward\'s Jab)', description: 'Атака із засідки/зненацька — тест Спритності DR10. У разі успіху автоматичне влучання легкою одноручною зброєю з бонусом +3 до шкоди.' },
       { name: 'Мерзенний щипач (Filthy Fingersmith)', description: 'Обкрадає кишені та зламує замки тестом Спритності DR8. Починає з відмичками.' },
-      { name: 'Огидний плювок (Abominable Gob Lobber)', description: 'В\'язке мокротиння на короткій дистанції (d2 рази за бій). Тест Присутності DR8. Цілі сліпнуть і блюють d4 раунди. Усі свідки мають пройти перевірку Витривалості, щоб не знудитися.' },
+      { name: 'Огидний плювок (Abominable Gob Lobber)', description: 'В\'язке мокротиння на короткій дистанції (d2 рази за бій). Тест Волі DR8. Цілі сліпнуть і блюють d4 раунди. Усі свідки мають пройти перевірку Витривалості, щоб не знудитися.' },
       { name: 'Втеча від долі (Escaping Fate)', description: 'Кожного разу при використанні Знамення є 50% шанс, що воно не витратиться.' },
-      { name: 'Вигрібна скритність (Excretal Stealth)', description: 'Здатність ховатися в помиях і фекаліях так, що для виявлення потрібен тест Присутності DR16.' },
+      { name: 'Вигрібна скритність (Excretal Stealth)', description: 'Здатність ховатися в помиях і фекаліях так, що для виявлення потрібен тест Волі DR16.' },
       { name: 'Обман смерті (Dodging Death)', description: 'При смерті є 50% шанс вижити. За 10 раундів підводиться з d4 HP і абсурдним поясненням порятунку.' }
     ]
   },
@@ -119,7 +119,7 @@ export const CLASSES_DATA: Record<CharacterClassId, ClassDefinition> = {
     weaponDie: 4,
     armorDie: 2,
     abilityName: 'Майстерність сувоїв (Wise)',
-    abilityDescription: 'Починає з одним випадковим сувоєм (священним або нечистим). Має d4 Знамень. Присутність 3d6+2, Сила 3d6-2. Зброя d4, броня d2.',
+    abilityDescription: 'Починає з одним випадковим сувоєм (священним або нечистим). Має d4 Знамень. Воля 3d6+2, Сила 3d6-2. Зброя d4, броня d2.',
     origins: [
       'Прокинувся дорослим у ритуальному колі під північним мостом Ґріфта.',
       'Вийшов без пам\'яті з печери на скелях Теріону.',
@@ -129,7 +129,7 @@ export const CLASSES_DATA: Record<CharacterClassId, ClassDefinition> = {
       'Виріс на самотньому острові озера Онда, про який ніхто не чув і куди немає вороття.'
     ],
     uniqueStarters: [
-      { name: 'Володар долі (Master of Fate)', description: 'Пізнання причинності. Тест Присутності DR8 відкриває правильний шлях.' },
+      { name: 'Володар долі (Master of Fate)', description: 'Пізнання причинності. Тест Волі DR8 відкриває правильний шлях.' },
       { name: 'Книга киплячої крові (Book of Boiling Blood)', description: 'Раз на день ворог має пройти перевірку DR12, інакше виринають d2 берсерки-вбивці. На 1–4 вони б\'ються за тебе, на 5–6 нападають на тебе.' },
       { name: 'Мовець істин (Speaker of Truths)', description: 'Двічі на день знижує DR наступного тесту обраної істоти на 4.' },
       { name: 'Адепт Невидимого Коледжу (Initiate of the Invisible College)', description: 'Раз на день прикликає d2 сувої (на 1-2 священні, на 3-4 нечисті; зникають на світанку).' },
@@ -167,10 +167,10 @@ export const CLASSES_DATA: Record<CharacterClassId, ClassDefinition> = {
     uniqueStarters: [
       { name: 'Клинок предків (Blade of Your Ancestors)', description: 'Магічний балакучий меч (атака/захист DR10, d6+1 шкоди). При невдачах має шанс 1 з 6 вдарити власника чи союзника.' },
       { name: 'Блазень Полтрон (\'Poltroon\' Court Jester)', description: 'Жалюгідний скиглій. Його кривляння відволікають ворогів: у перші два раунди бою персонаж та союзники мають +2 до атаки й захисту.' },
-      { name: 'Неймовірний кінь Барбарістер (Barbarister the Incredible Horse)', description: 'Балакучий, пихатий кінь. Часом дає +2 до перевірок Присутності на логіку та інтелект.' },
+      { name: 'Неймовірний кінь Барбарістер (Barbarister the Incredible Horse)', description: 'Балакучий, пихатий кінь. Часом дає +2 до перевірок Волі на логіку та інтелект.' },
       { name: 'Зброєносець Гамфунд (Hamfund the Squire)', description: 'Боягуз, що носить проклятий меч Еврика (2d6 шкоди). Щоразу при помаху мечем кинь d6: при «1» зброєносець гине, а меч зникає назавжди.' },
       { name: 'Зміїний дарунок (Snake-skin Gift)', description: 'Сандалова шкатулка з кинджалом (d4). При викиданні «1» на шкоду жертва миттєво помирає від смертоносної отрути.' },
-      { name: 'Ріг володарів Шлезвіга (Horn of Schleswig Lords)', description: 'Раз на день сурмить (Присутність DR12). Дає обраній істоті автоматичний успіх на наступний небойовий тест.' }
+      { name: 'Ріг володарів Шлезвіга (Horn of Schleswig Lords)', description: 'Раз на день сурмить (тест Волі DR12). Дає обраній істоті автоматичний успіх на наступний небойовий тест.' }
     ]
   },
   heretical_priest: {
@@ -191,7 +191,7 @@ export const CLASSES_DATA: Record<CharacterClassId, ClassDefinition> = {
     weaponDie: 8,
     armorDie: 3, // Light or medium armor
     abilityName: 'Єретичне благословення (Insightful)',
-    abilityDescription: 'Присутність 3d6+2, Сила 3d6-2. Зброя d8. Може використовувати сувої й сили, носячи СЕРЕДНЮ броню.',
+    abilityDescription: 'Воля 3d6+2, Сила 3d6-2. Зброя d8. Може використовувати сувої й сили, носячи СЕРЕДНЮ броню.',
     origins: [
       'Ґальґенбек, підніжжя собору Двоголових Василісків.',
       'Єдиний вцілілий після різанини в культі Алліанса.',
@@ -203,10 +203,10 @@ export const CLASSES_DATA: Record<CharacterClassId, ClassDefinition> = {
     uniqueStarters: [
       { name: 'Посох священного пастиря (Sacred Shepherd\'s Crook)', description: 'Гак з людської кістки (2d4 шкоди всім, окрім людей, що втратили віру).' },
       { name: 'Крадена митра (Stolen Mitre)', description: 'Захист DR10 у бою. За межами бою непомітність перевіряється з DR8.' },
-      { name: 'Сувій гріхів (List of Sins)', description: 'Присутність DR10 виявляє невидиме зло. Захист +2 проти викритих істот.' },
+      { name: 'Сувій гріхів (List of Sins)', description: 'Тест Волі DR10 виявляє невидиме зло. Захист +2 проти викритих істот.' },
       { name: 'Богохульна біблія Нехрубеля (Blasphemous Nechrubel Bible)', description: 'Читається раз на день. Парний результат: всі ПК лікують d4 HP за 5 хв відпочинку. Непарний: демонічні галюцинації у жерця до світанку.' },
-      { name: 'Камені з загубленого храму Тель-Емас (Stones from Thel-Emas)', description: 'Кидок камінців виявляє небезпеку в сусідній кімнаті (Присутність DR10).' },
-      { name: 'Розп\'яття «Не того Ісуса» ((Wrong Jesus) Crucifix)', description: 'Відлякує нежить, тролів і гоблінів (перевірка їхньої Моралі з модифікатором Присутності жерця).' }
+      { name: 'Камені з загубленого храму Тель-Емас (Stones from Thel-Emas)', description: 'Кидок камінців виявляє небезпеку в сусідній кімнаті (тест Волі DR10).' },
+      { name: 'Розп\'яття «Не того Ісуса» ((Wrong Jesus) Crucifix)', description: 'Відлякує нежить, тролів і гоблінів (перевірка їхньої Моралі з модифікатором Волі жерця).' }
     ]
   },
   occult_herbmaster: {
@@ -242,7 +242,7 @@ export const CLASSES_DATA: Record<CharacterClassId, ClassDefinition> = {
       { name: 'Юшка з південної жаби', description: 'Невпинна блювота на d4 години (тест DR14, щоб зробити хоч щось).' },
       { name: 'Життєдайний еліксир', description: 'Лікує d6 HP, зупиняє інфекцію.' },
       { name: 'Суп із павука-сови', description: 'Бачення в темряві та лазіння по стінах на 30 хвилин.' },
-      { name: 'Олива Фернора', description: 'Капається в око. Знімає інфекцію, +2 до тестів Присутності на d4 години.' },
+      { name: 'Олива Фернора', description: 'Капається в око. Знімає інфекцію, +2 до тестів Волі на d4 години.' },
       { name: 'Бадьорий тютюн Гіпфоса', description: 'Лють! 2 атаки за раунд, але захист DR14 на один бій.' },
       { name: 'Чорна отрута', description: 'Витривалість DR14 або -d6 HP і сліпота на одну годину.' }
     ]
@@ -251,7 +251,7 @@ export const CLASSES_DATA: Record<CharacterClassId, ClassDefinition> = {
     id: 'classless_drifter',
     name: 'Classless Drifter',
     nameUk: 'Безкласовий волоцюга',
-    title: 'Звичайний вигнанець без професії та привілеїв',
+    title: 'Ззвичайний вигнанець без професії та привілеїв',
     description: 'Жодного спеціального вишколу чи шляхетської крові. Лише гола жага вижити в умираючому світі.',
     hpDie: 8,
     omensDie: 2,
@@ -279,7 +279,7 @@ export const CLASSES_DATA: Record<CharacterClassId, ClassDefinition> = {
       { name: 'Саморобна мапа казематів', description: 'Показує таємний хід у найближчі підземелля.' },
       { name: 'Заіржавілий замок з ключем', description: 'Важкий та надійний замок для блокування дверей.' },
       { name: 'Точильний камінь', description: 'Дає +1 до шкоди на перший удар ближнього бою після відпочинку.' },
-      { name: 'Жменя кісток мерців', description: 'Амулет, що дає підказку від духів при кидку Присутності DR12.' },
+      { name: 'Жменя кісток мерців', description: 'Амулет, що дає підказку від духів при кидку Волі DR12.' },
       { name: 'Мішечок із сіллю та сажею', description: 'Захищає від дрібних духів та примар при розсипанні.' }
     ]
   }
@@ -297,14 +297,14 @@ export const CARRYING_CONTAINERS = [
 // Small gear Table 1 (d12) - Bare Bones Page 22
 export const GEAR_TABLE_1: { name: string; description: string; slots: number }[] = [
   { name: 'Мотузка (Rope, 30 ft)', description: '30 футів (9 м) міцної мотузки.', slots: 1 },
-  { name: 'Смолоскипи (Torches)', description: 'Присутність + 4 смолоскипи (мінемум 1). Освітлюють темряву.', slots: 1 },
-  { name: 'Ліхтар з оливою (Lantern & Oil)', description: 'Запас оливи на Присутність + 6 годин (мінемум 1 год).', slots: 1 },
+  { name: 'Смолоскипи (Torches)', description: 'Воля + 4 смолоскипи (мінімум 1). Освітлюють темряву.', slots: 1 },
+  { name: 'Ліхтар з оливою (Lantern & Oil)', description: 'Запас оливи на Воля + 6 годин (мінімум 1 год).', slots: 1 },
   { name: 'Магнієва стрічка (Magnesium strip)', description: 'Яскраво спалахує для розпалювання вогню.', slots: 1 },
   { name: 'Випадковий нечистий сувій', description: 'Темна магія з таблиці Нечистих сувоїв.', slots: 1 },
   { name: 'Гостра голка (Sharp needle)', description: 'Для шиття, катувань чи медичних дій.', slots: 1 },
-  { name: 'Аптечка (Medicine chest)', description: 'Присутність + 4 використання. Зупиняє кровотечу/інфекцію та лікує d6 HP.', slots: 1 },
+  { name: 'Аптечка (Medicine chest)', description: 'Воля + 4 використання. Зупиняє кровотечу/інфекцію та лікує d6 HP.', slots: 1 },
   { name: 'Напилок та відмички (File & Lockpicks)', description: 'Для зламу кайданів, ґрат та замків.', slots: 1 },
-  { name: 'Капкан на ведмедя (Bear trap)', description: 'Присутність DR14 щоб помітити. Завдає d8 шкоди.', slots: 1 },
+  { name: 'Капкан на ведмедя (Bear trap)', description: 'Тест Волі DR14 щоб помітити. Завдає d8 шкоди.', slots: 1 },
   { name: 'Бомба (Bomb)', description: 'Запечатана пляшка з порохом, завдає d10 шкоди.', slots: 1 },
   { name: 'Червона отрута (Red poison)', description: 'd4 дози. Витривалість DR12 або d10 шкоди.', slots: 1 },
   { name: 'Срібне розп\'яття (Silver crucifix)', description: 'Священна реліквія. Відлякує нежить.', slots: 1 }
@@ -334,9 +334,9 @@ export const WEAPONS_TABLE: EquipmentItem[] = [
   { id: 'w4', name: 'Ніж (Knife)', isWeapon: true, damage: 'd4', slots: 1, description: 'Гострий ніж.' },
   { id: 'w5', name: 'Бойовий молот (Warhammer)', isWeapon: true, damage: 'd6', slots: 1, description: 'Дробить броньовані черепи.' },
   { id: 'w6', name: 'Меч (Sword)', isWeapon: true, damage: 'd6', slots: 1, description: 'Класичний меч.' },
-  { id: 'w7', name: 'Лук (Bow)', isWeapon: true, damage: 'd6', slots: 2, description: 'Лук з (Присутність + 10) стрілами.' },
+  { id: 'w7', name: 'Лук (Bow)', isWeapon: true, damage: 'd6', slots: 2, description: 'Лук з (Воля + 10) стрілами.' },
   { id: 'w8', name: 'Ціп (Flail)', isWeapon: true, damage: 'd8', slots: 1, description: 'Залізний ціп на ланцюгу.' },
-  { id: 'w9', name: 'Арбалет (Crossbow)', isWeapon: true, damage: 'd8', slots: 2, description: 'Арбалет з (Присутність + 10) болтами.' },
+  { id: 'w9', name: 'Арбалет (Crossbow)', isWeapon: true, damage: 'd8', slots: 2, description: 'Арбалет з (Воля + 10) болтами.' },
   { id: 'w10', name: 'Дворучний меч (Zweihänder)', isWeapon: true, damage: 'd10', slots: 2, description: 'Величезний меч (2 слоти). Унеможливлює використання сувоїв!' }
 ];
 
@@ -353,7 +353,7 @@ export const UNCLEAN_SCROLLS: ScrollItem[] = [
   { name: 'Долоні відчиняють південну браму (Palms Open The Southern Gate)', type: 'unclean', effect: 'Вогняна куля вражає d2 істот, завдаючи d8 шкоди кожній.' },
   { name: 'Язик Еріди (Tongue of Eris)', type: 'unclean', effect: 'Обрана істота впадає в замішання на 10 хвилин.' },
   { name: 'Телекінез (Te-Le-Kin-Esis)', type: 'unclean', effect: 'Переміщує предмет вагою до d10×10 футів на d6 хвилин.' },
-  { name: 'Левітація Люсі-Файрс (Lucy-Fires Levitation)', type: 'unclean', effect: 'Зависнення у повітрі на (Присутність + d10) раундів.' },
+  { name: 'Левітація Люсі-Файрс (Lucy-Fires Levitation)', type: 'unclean', effect: 'Зависнення у повітрі на (Воля + d10) раундів.' },
   { name: 'Демон капілярів (Daemon of Capillaries)', type: 'unclean', effect: 'Істота удушається d6 раундів, втрачаючи d4 HP щораунду.' },
   { name: 'Дев\'ять фіолетових знаків (Nine Violet Signs)', type: 'unclean', effect: 'Викликає d2 блискавки, що завдають d6 шкоди кожна.' },
   { name: 'Метцхуотль засліплює око (Metzhuotl Blind Your Eye)', type: 'unclean', effect: 'Істота стає невидимою на d6 раундів або до першої шкоди (атака/захист DR6).' },
@@ -383,7 +383,7 @@ export const HERBMASTER_POTIONS = [
   { name: 'Юшка з південної жаби (Southern Frog Stew)', effect: 'Блювота на d4 години (тест DR14 щоб щось зробити).' },
   { name: 'Життєдайний еліксир (Elixir Vitalis)', effect: 'Лікує d6 HP та зупиняє інфекцію.' },
   { name: 'Суп із павука-сови (Spider-Owl Soup)', effect: 'Бачення в темряві та лазіння по стінах на 30 хвилин.' },
-  { name: 'Олива Фернора (Fernor\'s Philtre)', effect: 'Крапля в око. Знімає інфекцію, +2 до тестів Присутності на d4 години.' },
+  { name: 'Олива Фернора (Fernor\'s Philtre)', effect: 'Крапля в око. Знімає інфекцію, +2 до тестів Волі на d4 години.' },
   { name: 'Бадьорий тютюн Гіпфоса (Hyphos\' Snuff)', effect: 'Лють! 2 атаки за раунд, але захист DR14 на один бій.' },
   { name: 'Чорна отрута (Black Poison)', effect: 'Витривалість DR14 або -d6 HP і сліпота на 1 годину.' }
 ];

@@ -54,7 +54,7 @@ export const RulesReferenceModal: React.FC = () => {
           <div className="space-y-2 text-xs font-mono text-gray-300">
             <p><strong className="text-white">Ініціатива (d6):</strong> 1-3 — вороги перші; 4-6 — гравці перші. (Або Спритність + d6 для індивідуальної).</p>
             <p><strong className="text-white">Ближній бій:</strong> Тест Сили DR12.</p>
-            <p><strong className="text-white">Дальній бій:</strong> Тест Присутності DR12.</p>
+            <p><strong className="text-white">Дальній бій:</strong> Тест Волі DR12.</p>
             <p><strong className="text-white">Захист (Ухилення):</strong> Тест Спритності DR12. При невдачі ворог завдає шкоду.</p>
             <div className="bg-[#1a1a1a] p-3 border border-black space-y-1 text-[11px] mt-2">
               <div><strong className="text-[#fee715]">КРИТ (20 на d20):</strong> Атака: подвійна шкода + зниження броні цілі на 1 рівень. Захист: гравець отримує вільну контратаку!</div>
@@ -89,8 +89,8 @@ export const RulesReferenceModal: React.FC = () => {
             <span>Магія та Сувої (Powers)</span>
           </h3>
           <div className="space-y-2 text-xs font-mono text-gray-300">
-            <p><strong className="text-white">Використання в день:</strong> Щоранку кидається <strong className="text-purple-300">Присутність + d4</strong> — це загальна кількість використання магії на день.</p>
-            <p><strong className="text-white">Тест магії:</strong> Тест Присутності DR12.</p>
+            <p><strong className="text-white">Використання в день:</strong> Щоранку кидається <strong className="text-purple-300">Воля + d4</strong> — це загальна кількість використання магії на день.</p>
+            <p><strong className="text-white">Тест магії:</strong> Тест Волі DR12.</p>
             <p className="text-red-300">
               При ПРОВАЛІ: Сила не спрацьовує, гравець втрачає d2 HP та отримує запаморочення на 1 годину (в цей час магія завжди фейлиться найгіршим чином або кидається по таблиці Аркана Катастрофа d20).
             </p>
