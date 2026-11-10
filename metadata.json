@@ -1,0 +1,6 @@
+{
+  "name": "Scvmbirther UA — Генератор персонажів MÖRK BORG",
+  "description": "Автентичний україномовний генератор персонажів для темного фентезі MÖRK BORG (Bare Bones Edition) з розширеними таблицями, звуками, експортом та кубиками.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
