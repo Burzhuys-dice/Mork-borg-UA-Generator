@@ -3,13 +3,9 @@ import { CharacterClassId } from '../types/morkborg';
 import { ClassSelector } from './ClassSelector';
 import {
   Skull,
-  Users,
   BookOpen,
   Dices,
-  Volume2,
-  VolumeX,
   Plus,
-  BookmarkCheck,
   ChevronDown,
   ChevronUp,
   TrendingUp,
@@ -17,18 +13,16 @@ import {
   Check,
   Sparkles
 } from 'lucide-react';
-import { toggleAmbientSound } from '../utils/audio';
 
 interface NavbarProps {
-  currentTab: 'single' | 'batch' | 'roster' | 'rules' | 'gm';
-  setCurrentTab: (tab: 'single' | 'batch' | 'roster' | 'rules' | 'gm') => void;
+  currentTab: 'single' | 'rules' | 'gm';
+  setCurrentTab: (tab: 'single' | 'rules' | 'gm') => void;
   selectedClass: CharacterClassId | 'random';
   onSelectClass: (cId: CharacterClassId | 'random') => void;
   onGenerateNew: () => void;
   onGettingBetter: () => void;
   onCopyText: () => void;
   copySuccess: boolean;
-  savedCount: number;
   openDiceModal: () => void;
   characterName: string;
   characterClassName: string;
@@ -43,18 +37,11 @@ export const Navbar: React.FC<NavbarProps> = ({
   onGettingBetter,
   onCopyText,
   copySuccess,
-  savedCount,
   openDiceModal,
   characterName,
   characterClassName,
 }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [isAudioOn, setIsAudioOn] = useState(false);
-
-  const handleAudioToggle = () => {
-    const newState = toggleAmbientSound();
-    setIsAudioOn(newState);
-  };
 
   return (
     <header className="no-print bg-[#0d0d0d] border-b-2 border-black sticky top-0 z-40 shadow-2xl">
@@ -154,16 +141,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                   {copySuccess ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
                   <span>{copySuccess ? 'Скопійовано!' : 'Скопіювати текст'}</span>
                 </button>
-
-                <button
-                  onClick={handleAudioToggle}
-                  className={`px-3 py-1.5 border border-black shadow-[2px_2px_0px_#000] text-xs font-bold uppercase flex items-center gap-1.5 transition-all ${
-                    isAudioOn ? 'bg-[#fee715] text-black' : 'bg-[#222] text-gray-300 hover:bg-[#333]'
-                  }`}
-                >
-                  {isAudioOn ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
-                  <span>{isAudioOn ? 'Звук Увімк' : 'Звук Вимк'}</span>
-                </button>
               </div>
 
               {/* Right: Main Navigation Tabs */}
@@ -181,36 +158,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                 >
                   <Skull className="w-3.5 h-3.5" />
                   <span>Картка</span>
-                </button>
-
-                <button
-                  onClick={() => {
-                    setCurrentTab('batch');
-                    setIsDrawerOpen(false);
-                  }}
-                  className={`px-2.5 py-1 text-xs font-heading tracking-wide uppercase transition-all flex items-center gap-1 ${
-                    currentTab === 'batch'
-                      ? 'bg-[#fee715] text-black font-bold'
-                      : 'text-gray-300 hover:text-white'
-                  }`}
-                >
-                  <Users className="w-3.5 h-3.5" />
-                  <span>Загін (4)</span>
-                </button>
-
-                <button
-                  onClick={() => {
-                    setCurrentTab('roster');
-                    setIsDrawerOpen(false);
-                  }}
-                  className={`px-2.5 py-1 text-xs font-heading tracking-wide uppercase transition-all flex items-center gap-1 ${
-                    currentTab === 'roster'
-                      ? 'bg-[#fee715] text-black font-bold'
-                      : 'text-gray-300 hover:text-white'
-                  }`}
-                >
-                  <BookmarkCheck className="w-3.5 h-3.5" />
-                  <span>Реєстр ({savedCount})</span>
                 </button>
 
                 <button

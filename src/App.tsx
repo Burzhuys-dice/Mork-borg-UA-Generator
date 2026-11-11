@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Character, CharacterClassId } from './types/morkborg';
 import { generateCharacter } from './utils/generator';
 import { roll, rollDice } from './utils/dice';
 import { UNCLEAN_SCROLLS, SACRED_SCROLLS } from './data/morkborgTables';
 import { Navbar } from './components/Navbar';
 import { CharacterSheet } from './components/CharacterSheet';
-import { BatchGenerator } from './components/BatchGenerator';
-import { Roster } from './components/Roster';
 import { RulesReferenceModal } from './components/RulesReferenceModal';
 import { DiceRollerModal } from './components/DiceRollerModal';
 import { GMTools } from './components/GMTools';
 
-const ROSTER_LOCAL_KEY = 'mork_borg_scvmbirther_roster_v2';
-
 export default function App() {
-  const [currentTab, setCurrentTab] = useState<'single' | 'batch' | 'roster' | 'rules' | 'gm'>('single');
+  const [currentTab, setCurrentTab] = useState<'single' | 'rules' | 'gm'>('single');
   const [selectedClass, setSelectedClass] = useState<CharacterClassId | 'random'>('random');
   
   // Active character state
@@ -22,26 +18,7 @@ export default function App() {
   const [gettingBetterResult, setGettingBetterResult] = useState<string | null>(null);
   const [copySuccess, setCopySuccess] = useState(false);
 
-  // Roster saved characters
-  const [roster, setRoster] = useState<Character[]>(() => {
-    try {
-      const saved = localStorage.getItem(ROSTER_LOCAL_KEY);
-      return saved ? JSON.parse(saved) : [];
-    } catch {
-      return [];
-    }
-  });
-
   const [isDiceModalOpen, setIsDiceModalOpen] = useState(false);
-
-  // Sync roster to localStorage
-  useEffect(() => {
-    try {
-      localStorage.setItem(ROSTER_LOCAL_KEY, JSON.stringify(roster));
-    } catch (e) {
-      console.error('Failed to save roster to localStorage:', e);
-    }
-  }, [roster]);
 
   // Generate new character
   const handleGenerateNew = () => {
@@ -175,40 +152,6 @@ ${character.scrolls.length > 0 ? character.scrolls.map(s => `• ${s.name} (${s.
     setTimeout(() => setCopySuccess(false), 2000);
   };
 
-  // Save character to roster
-  const handleSaveToRoster = (charToSave: Character) => {
-    setRoster((prev) => {
-      const exists = prev.some((c) => c.id === charToSave.id);
-      if (exists) {
-        return prev.map((c) => (c.id === charToSave.id ? charToSave : c));
-      }
-      return [charToSave, ...prev];
-    });
-  };
-
-  // Remove character from roster
-  const handleRemoveFromRoster = (id: string) => {
-    setRoster((prev) => prev.filter((c) => c.id !== id));
-  };
-
-  // Import full roster
-  const handleImportRoster = (imported: Character[]) => {
-    setRoster(imported);
-  };
-
-  // Clear roster
-  const handleClearRoster = () => {
-    if (window.confirm('Ви дійсно бажаєте очистити увесь реєстр збережених персонажів?')) {
-      setRoster([]);
-    }
-  };
-
-  // Select character from Roster or Batch into main view
-  const handleSelectFromRosterOrBatch = (char: Character) => {
-    setCharacter(char);
-    setCurrentTab('single');
-  };
-
   return (
     <div className="min-h-screen bg-[#0b0b0b] text-[#e0dfd5] font-mono selection:bg-[#ff0055] selection:text-white">
       {/* Collapsible Top Curtain Navbar */}
@@ -221,7 +164,6 @@ ${character.scrolls.length > 0 ? character.scrolls.map(s => `• ${s.name} (${s.
         onGettingBetter={handleGettingBetter}
         onCopyText={handleCopyText}
         copySuccess={copySuccess}
-        savedCount={roster.length}
         openDiceModal={() => setIsDiceModalOpen(true)}
         characterName={character.name}
         characterClassName={character.className}
@@ -235,23 +177,6 @@ ${character.scrolls.length > 0 ? character.scrolls.map(s => `• ${s.name} (${s.
             onUpdateCharacter={setCharacter}
             gettingBetterResult={gettingBetterResult}
             onClearGettingBetterResult={() => setGettingBetterResult(null)}
-          />
-        )}
-
-        {currentTab === 'batch' && (
-          <BatchGenerator
-            onSelectCharacter={handleSelectFromRosterOrBatch}
-            onSaveToRoster={handleSaveToRoster}
-          />
-        )}
-
-        {currentTab === 'roster' && (
-          <Roster
-            roster={roster}
-            onSelectCharacter={handleSelectFromRosterOrBatch}
-            onRemoveFromRoster={handleRemoveFromRoster}
-            onImportRoster={handleImportRoster}
-            onClearRoster={handleClearRoster}
           />
         )}
 

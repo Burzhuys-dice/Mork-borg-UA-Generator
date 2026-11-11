@@ -49,7 +49,7 @@ export const RulesReferenceModal: React.FC = () => {
         <div className="bg-[#121212] border-3 border-black p-4 md:p-5 shadow-[4px_4px_0px_#000]">
           <h3 className="text-sm md:text-base font-heading font-black uppercase text-[#ff0055] mb-3 flex items-center gap-2 border-b border-gray-800 pb-2">
             <Swords className="w-4 h-4 text-[#ff0055]" />
-            <span>Бой, Критичні Влучання та Провали</span>
+            <span>Бій, Критичні Влучання та Провали</span>
           </h3>
           <div className="space-y-2 text-xs font-mono text-gray-300">
             <p><strong className="text-white">Ініціатива (d6):</strong> 1-3 — вороги перші; 4-6 — гравці перші. (Або Спритність + d6 для індивідуальної).</p>

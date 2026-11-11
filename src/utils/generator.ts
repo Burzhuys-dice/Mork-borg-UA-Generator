@@ -138,7 +138,7 @@ export function generateCharacter(selectedClassId?: CharacterClassId | 'random')
       desc = `Запас оливи: ${hours} год. ${t1Item.description}`;
     } else if (t1Item.name.includes('Аптечка')) {
       const uses = Math.max(1, abilities.presence.modifier + 4);
-      desc = `Запас: ${uses} використ. Лікує d6 HP і спиняє інфекцію.`;
+      desc = `Запас: ${uses} використань. Лікує d6 HP і спиняє інфекцію.`;
     }
     gearList.push({
       id: `gear_t1_${Date.now()}_${Math.random()}`,

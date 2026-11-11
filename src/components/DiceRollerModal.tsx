@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { roll } from '../utils/dice';
-import { playDiceSound } from '../utils/audio';
 import confetti from 'canvas-confetti';
 import { Dices, X } from 'lucide-react';
 
@@ -32,7 +31,6 @@ export const DiceRollerModal: React.FC<DiceRollerModalProps> = ({ isOpen, onClos
   if (!isOpen) return null;
 
   const handleRoll = () => {
-    playDiceSound();
     const raw = roll(selectedDice);
     const total = raw + modifier;
     const isCrit = selectedDice === 20 && raw === 20;
