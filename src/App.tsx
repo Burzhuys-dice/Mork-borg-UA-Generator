@@ -9,11 +9,12 @@ import { BatchGenerator } from './components/BatchGenerator';
 import { Roster } from './components/Roster';
 import { RulesReferenceModal } from './components/RulesReferenceModal';
 import { DiceRollerModal } from './components/DiceRollerModal';
+import { GMTools } from './components/GMTools';
 
 const ROSTER_LOCAL_KEY = 'mork_borg_scvmbirther_roster_v2';
 
 export default function App() {
-  const [currentTab, setCurrentTab] = useState<'single' | 'batch' | 'roster' | 'rules'>('single');
+  const [currentTab, setCurrentTab] = useState<'single' | 'batch' | 'roster' | 'rules' | 'gm'>('single');
   const [selectedClass, setSelectedClass] = useState<CharacterClassId | 'random'>('random');
   
   // Active character state
@@ -141,12 +142,12 @@ export default function App() {
     const text = `
 === MÖRK BORG ПЕРСОНАЖ: ${character.name} ===
 Клас: ${character.className}
-HP: ${character.currentHp}/${character.maxHp} | Знамення: ${character.omens}/${character.maxOmens} | Срібло: ${character.silver}с
+HP: ${character.currentHp}/${character.maxHp} | Знаки: ${character.omens}/${character.maxOmens} | Срібло: ${character.silver}с
 
 [ХАРАКТЕРИСТИКИ]
 • Сила: ${character.abilities.strength.modifier >= 0 ? '+' : ''}${character.abilities.strength.modifier}
 • Спритність: ${character.abilities.agility.modifier >= 0 ? '+' : ''}${character.abilities.agility.modifier}
-• Воля: ${character.abilities.presence.modifier >= 0 ? '+' : ''}${character.abilities.presence.modifier}
+• Свідомість: ${character.abilities.presence.modifier >= 0 ? '+' : ''}${character.abilities.presence.modifier}
 • Витривалість: ${character.abilities.toughness.modifier >= 0 ? '+' : ''}${character.abilities.toughness.modifier}
 
 [ЗБРОЯ ТА БРОНЯ]
@@ -252,6 +253,10 @@ ${character.scrolls.length > 0 ? character.scrolls.map(s => `• ${s.name} (${s.
             onImportRoster={handleImportRoster}
             onClearRoster={handleClearRoster}
           />
+        )}
+
+        {currentTab === 'gm' && (
+          <GMTools />
         )}
 
         {currentTab === 'rules' && (

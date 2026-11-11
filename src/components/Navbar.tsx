@@ -14,13 +14,14 @@ import {
   ChevronUp,
   TrendingUp,
   Copy,
-  Check
+  Check,
+  Sparkles
 } from 'lucide-react';
 import { toggleAmbientSound } from '../utils/audio';
 
 interface NavbarProps {
-  currentTab: 'single' | 'batch' | 'roster' | 'rules';
-  setCurrentTab: (tab: 'single' | 'batch' | 'roster' | 'rules') => void;
+  currentTab: 'single' | 'batch' | 'roster' | 'rules' | 'gm';
+  setCurrentTab: (tab: 'single' | 'batch' | 'roster' | 'rules' | 'gm') => void;
   selectedClass: CharacterClassId | 'random';
   onSelectClass: (cId: CharacterClassId | 'random') => void;
   onGenerateNew: () => void;
@@ -117,7 +118,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div>
               <div className="flex items-center justify-between mb-1.5">
                 <span className="text-xs font-heading font-black text-[#fee715] uppercase tracking-wider">
-                  Вибір КласуПерсонажа (d6)
+                  Вибір Класу Персонажа
                 </span>
                 <span className="text-[10px] font-mono text-gray-400">Натисніть клас для миттєвої генерації</span>
               </div>
@@ -210,6 +211,21 @@ export const Navbar: React.FC<NavbarProps> = ({
                 >
                   <BookmarkCheck className="w-3.5 h-3.5" />
                   <span>Реєстр ({savedCount})</span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    setCurrentTab('gm');
+                    setIsDrawerOpen(false);
+                  }}
+                  className={`px-2.5 py-1 text-xs font-heading tracking-wide uppercase transition-all flex items-center gap-1 ${
+                    currentTab === 'gm'
+                      ? 'bg-[#fee715] text-black font-bold'
+                      : 'text-gray-300 hover:text-white'
+                  }`}
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
+                  <span>Майстер</span>
                 </button>
 
                 <button

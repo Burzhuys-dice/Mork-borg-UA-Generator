@@ -57,29 +57,29 @@ export function rollAbilitiesForClass(classId: CharacterClassId): Abilities {
   } else if (classId === 'occult_herbmaster') {
     touMod = 2;
     strMod = -2;
+  } else if (classId === 'cursed_skinwalker') {
+    strMod = 1;
+    preMod = -2;
+    touMod = 1;
+  } else if (classId === 'pale_one') {
+    agiMod = 1;
+    preMod = 1;
+    touMod = -2;
+  } else if (classId === 'dead_gods_prophet') {
+    preMod = 2;
+    touMod = -2;
+  } else if (classId === 'sacrilegious_songbird') {
+    preMod = 2;
+    touMod = -2;
+  } else if (classId === 'forlorn_philosopher') {
+    preMod = 2;
+    strMod = -2;
   }
 
-  let strRaw: number;
-  let agiRaw: number;
-  let preRaw: number;
-  let touRaw: number;
-
-  if (classId === 'classless_drifter') {
-    // Classless drifter: 4d6 keep 3 for TWO chosen stats, 3d6 for other two
-    const keys = ['str', 'agi', 'pre', 'tou'];
-    // Shuffle array to pick 2 at random
-    const boosted = [...keys].sort(() => Math.random() - 0.5).slice(0, 2);
-
-    strRaw = boosted.includes('str') ? rollKeepHighest(4, 6, 3) : rollDice(3, 6);
-    agiRaw = boosted.includes('agi') ? rollKeepHighest(4, 6, 3) : rollDice(3, 6);
-    preRaw = boosted.includes('pre') ? rollKeepHighest(4, 6, 3) : rollDice(3, 6);
-    touRaw = boosted.includes('tou') ? rollKeepHighest(4, 6, 3) : rollDice(3, 6);
-  } else {
-    strRaw = rollDice(3, 6) + strMod;
-    agiRaw = rollDice(3, 6) + agiMod;
-    preRaw = rollDice(3, 6) + preMod;
-    touRaw = rollDice(3, 6) + touMod;
-  }
+  const strRaw = rollDice(3, 6) + strMod;
+  const agiRaw = rollDice(3, 6) + agiMod;
+  const preRaw = rollDice(3, 6) + preMod;
+  const touRaw = rollDice(3, 6) + touMod;
 
   return {
     strength: { raw: strRaw, modifier: getAbilityMod(strRaw) },

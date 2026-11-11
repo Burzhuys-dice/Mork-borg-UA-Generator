@@ -9,7 +9,11 @@ export type CharacterClassId =
   | 'wretched_royalty'
   | 'heretical_priest'
   | 'occult_herbmaster'
-  | 'classless_drifter';
+  | 'cursed_skinwalker'
+  | 'pale_one'
+  | 'dead_gods_prophet'
+  | 'sacrilegious_songbird'
+  | 'forlorn_philosopher';
 
 export interface AbilityScore {
   raw: number;

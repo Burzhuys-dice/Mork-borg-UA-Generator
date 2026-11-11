@@ -119,13 +119,17 @@ export const Roster: React.FC<RosterProps> = ({
             className="w-full sm:w-1/2 bg-[#1a1a1a] text-xs font-mono text-white p-2 border border-black focus:outline-none"
           >
             <option value="all">Усі класи</option>
-            <option value="fanged_deserter">Ікластий дезертир</option>
-            <option value="gutterborn_scum">Поріддя нетрів</option>
-            <option value="esoteric_hermit">Езотеричний самітник</option>
-            <option value="wretched_royalty">Злиденна шляхта</option>
-            <option value="heretical_priest">Єретичний жрець</option>
-            <option value="occult_herbmaster">Окультний травник</option>
-            <option value="classless_drifter">Безкласовий волоцюга</option>
+            <option value="fanged_deserter">Ікластий Дезертир</option>
+            <option value="gutterborn_scum">Виродок з Канави</option>
+            <option value="esoteric_hermit">Езотеричний Відлюдник</option>
+            <option value="wretched_royalty">Занепала Знать</option>
+            <option value="heretical_priest">Єретичний Жрець</option>
+            <option value="occult_herbmaster">Окультний Травник</option>
+            <option value="dead_gods_prophet">Пророк Мертвого Бога</option>
+            <option value="sacrilegious_songbird">Блюзнірський Співець</option>
+            <option value="pale_one">Блідий</option>
+            <option value="cursed_skinwalker">Проклятий Перевертень</option>
+            <option value="forlorn_philosopher">Знедолений Філософ</option>
           </select>
         </div>
       )}
@@ -167,7 +171,7 @@ export const Roster: React.FC<RosterProps> = ({
                     HP {char.currentHp}/{char.maxHp}
                   </div>
                   <div className="bg-[#1a1a1a] p-1 border border-black text-[#fee715] font-bold">
-                    Знамення {char.omens}
+                    Знаки {char.omens}
                   </div>
                   <div className="bg-[#1a1a1a] p-1 border border-black text-amber-300 font-bold">
                     {char.silver}с

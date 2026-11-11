@@ -106,7 +106,7 @@ export const BatchGenerator: React.FC<BatchGeneratorProps> = ({
                   <div className="text-sm font-heading font-black text-red-400">{char.maxHp}</div>
                 </div>
                 <div className="bg-[#1a1a1a] p-1 border border-black">
-                  <div className="text-[9px] font-mono text-gray-400 uppercase">Знамення</div>
+                  <div className="text-[9px] font-mono text-gray-400 uppercase">Знаки</div>
                   <div className="text-sm font-heading font-black text-[#fee715]">{char.omens}</div>
                 </div>
                 <div className="bg-[#1a1a1a] p-1 border border-black">

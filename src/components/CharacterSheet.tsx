@@ -137,54 +137,54 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
             )}
           </div>
 
-          {/* Core Counters: HP, Omens, Silver (Lg 6 cols) */}
-          <div className="lg:col-span-6 grid grid-cols-3 gap-1.5">
+          {/* Core Counters: HP, Omens (Знаки), Silver (Lg 6 cols) */}
+          <div className="lg:col-span-6 grid grid-cols-3 gap-1 sm:gap-1.5">
             {/* HP */}
-            <div className={`px-2 py-1 border border-black flex items-center justify-between ${
+            <div className={`px-1.5 py-1 border border-black flex items-center justify-between min-w-0 ${
               character.currentHp === 0 ? 'bg-[#3d0000] text-red-200' : 'bg-[#181818]'
             }`}>
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1 min-w-0">
                 <Heart className="w-3.5 h-3.5 text-red-400 fill-current shrink-0" />
-                <span className="text-[10px] font-heading font-bold uppercase text-red-400">HP</span>
+                <span className="text-[10px] font-heading font-bold uppercase text-red-400 truncate">HP</span>
               </div>
-              <div className="flex items-center gap-1">
-                <span className="text-base font-heading font-black text-white">{character.currentHp}</span>
-                <span className="text-[10px] font-mono text-gray-400">/{character.maxHp}</span>
-                <div className="no-print flex flex-col ml-1">
-                  <button onClick={() => handleHpChange(1)} className="text-[8px] leading-none bg-[#333] hover:bg-emerald-800 px-1 py-0.5 text-white font-bold border border-black">+</button>
-                  <button onClick={() => handleHpChange(-1)} className="text-[8px] leading-none bg-[#333] hover:bg-red-900 px-1 py-0.5 text-white font-bold border border-black">-</button>
+              <div className="flex items-center gap-1 shrink-0">
+                <span className="text-sm sm:text-base font-heading font-black text-white">{character.currentHp}</span>
+                <span className="text-[9px] font-mono text-gray-400">/{character.maxHp}</span>
+                <div className="no-print flex items-center gap-0.5 ml-0.5">
+                  <button onClick={() => handleHpChange(-1)} className="text-[9px] leading-none bg-[#282828] hover:bg-red-900 px-1 py-1 text-white font-bold border border-black">-</button>
+                  <button onClick={() => handleHpChange(1)} className="text-[9px] leading-none bg-[#282828] hover:bg-emerald-800 px-1 py-1 text-white font-bold border border-black">+</button>
                 </div>
               </div>
             </div>
 
-            {/* Omens */}
-            <div className="px-2 py-1 bg-[#181818] border border-black flex items-center justify-between">
-              <div className="flex items-center gap-1">
+            {/* Omens (Знаки) */}
+            <div className="px-1.5 py-1 bg-[#181818] border border-black flex items-center justify-between min-w-0">
+              <div className="flex items-center gap-1 min-w-0">
                 <Sparkles className="w-3.5 h-3.5 text-[#fee715] fill-current shrink-0" />
-                <span className="text-[10px] font-heading font-bold uppercase text-[#fee715]">Знамення</span>
+                <span className="text-[10px] font-heading font-bold uppercase text-[#fee715] truncate">Знаки</span>
               </div>
-              <div className="flex items-center gap-1">
-                <span className="text-base font-heading font-black text-[#fee715]">{character.omens}</span>
-                <span className="text-[10px] font-mono text-gray-400">/{character.maxOmens}</span>
-                <div className="no-print flex flex-col ml-1">
-                  <button onClick={() => handleOmensChange(1)} className="text-[8px] leading-none bg-[#333] hover:bg-amber-600 px-1 py-0.5 text-white font-bold border border-black">+</button>
-                  <button onClick={() => handleOmensChange(-1)} className="text-[8px] leading-none bg-[#333] hover:bg-amber-950 px-1 py-0.5 text-white font-bold border border-black">-</button>
+              <div className="flex items-center gap-1 shrink-0">
+                <span className="text-sm sm:text-base font-heading font-black text-[#fee715]">{character.omens}</span>
+                <span className="text-[9px] font-mono text-gray-400">/{character.maxOmens}</span>
+                <div className="no-print flex items-center gap-0.5 ml-0.5">
+                  <button onClick={() => handleOmensChange(-1)} className="text-[9px] leading-none bg-[#282828] hover:bg-amber-950 px-1 py-1 text-white font-bold border border-black">-</button>
+                  <button onClick={() => handleOmensChange(1)} className="text-[9px] leading-none bg-[#282828] hover:bg-amber-600 px-1 py-1 text-white font-bold border border-black">+</button>
                 </div>
               </div>
             </div>
 
             {/* Silver */}
-            <div className="px-2 py-1 bg-[#181818] border border-black flex items-center justify-between">
-              <div className="flex items-center gap-1">
+            <div className="px-1.5 py-1 bg-[#181818] border border-black flex items-center justify-between min-w-0">
+              <div className="flex items-center gap-1 min-w-0">
                 <Coins className="w-3.5 h-3.5 text-amber-400 fill-current shrink-0" />
-                <span className="text-[10px] font-heading font-bold uppercase text-amber-400">Срібло</span>
+                <span className="text-[10px] font-heading font-bold uppercase text-amber-400 truncate">Срібло</span>
               </div>
-              <div className="flex items-center gap-1">
-                <span className="text-base font-heading font-black text-amber-300">{character.silver}</span>
-                <span className="text-[10px] font-mono text-amber-500">с</span>
-                <div className="no-print flex flex-col ml-1">
-                  <button onClick={() => handleSilverChange(10)} className="text-[8px] leading-none bg-[#333] hover:bg-amber-800 px-0.5 py-0.5 text-white font-bold border border-black">+10</button>
-                  <button onClick={() => handleSilverChange(-10)} className="text-[8px] leading-none bg-[#333] hover:bg-amber-950 px-0.5 py-0.5 text-white font-bold border border-black">-10</button>
+              <div className="flex items-center gap-1 shrink-0">
+                <span className="text-sm sm:text-base font-heading font-black text-amber-300">{character.silver}</span>
+                <span className="text-[9px] font-mono text-amber-500">с</span>
+                <div className="no-print flex items-center gap-0.5 ml-0.5">
+                  <button onClick={() => handleSilverChange(-10)} className="text-[8px] leading-none bg-[#282828] hover:bg-amber-950 px-0.5 py-1 text-white font-bold border border-black">-10</button>
+                  <button onClick={() => handleSilverChange(10)} className="text-[8px] leading-none bg-[#282828] hover:bg-amber-800 px-0.5 py-1 text-white font-bold border border-black">+10</button>
                 </div>
               </div>
             </div>
@@ -224,10 +224,10 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
               </div>
             </div>
 
-            {/* Volya (Presence) */}
+            {/* Presence (Свідомість) */}
             <div className="p-1.5 bg-[#181818] border border-black flex items-center justify-between">
               <div>
-                <span className="text-[10px] font-heading font-bold uppercase text-gray-300">Воля</span>
+                <span className="text-[10px] font-heading font-bold uppercase text-gray-300">Свідомість</span>
                 <p className="text-[9px] font-mono text-gray-500 leading-none">Увага/сувої/стрільба</p>
               </div>
               <div className="text-lg font-heading font-black text-[#fee715]">
@@ -316,10 +316,22 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({
               </p>
             </div>
 
-            {/* Starter Relic */}
+            {/* Starter Relic / Special Class Feature */}
             <div className="p-2 bg-[#181818] border border-black">
               <h3 className="text-xs font-heading font-black uppercase text-[#fee715] flex items-center gap-1 border-b border-gray-800 pb-1 mb-1">
-                <Shield className="w-3.5 h-3.5 text-[#fee715]" /> Реліквія / Старт: {character.uniqueStarterItemOrTrait.name}
+                <Shield className="w-3.5 h-3.5 text-[#fee715]" /> {
+                  character.classId === 'cursed_skinwalker'
+                    ? 'Подоба істоти'
+                    : character.classId === 'pale_one'
+                    ? 'Благословення'
+                    : character.classId === 'dead_gods_prophet'
+                    ? 'Дарунки мертвого бога'
+                    : character.classId === 'sacrilegious_songbird'
+                    ? 'Проклятий інструмент'
+                    : character.classId === 'forlorn_philosopher'
+                    ? 'Філософський артефакт'
+                    : 'Реліквія / Старт'
+                }: {character.uniqueStarterItemOrTrait.name}
               </h3>
               <p className="text-[11px] font-mono text-gray-300 leading-snug">
                 {character.uniqueStarterItemOrTrait.description}
